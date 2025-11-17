@@ -21,7 +21,6 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --force)
       FORCE=1
-      shift
       ;;
     -h|--help)
       usage
@@ -33,7 +32,8 @@ while [[ $# -gt 0 ]]; do
       exit 1
       ;;
   esac
-end
+  shift
+done
 
 if [ ! -d "$REPO_DIR" ]; then
   echo "Expected LazyVim config at $REPO_DIR" >&2
